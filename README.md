@@ -165,58 +165,155 @@ The goal is more conversation where it matters, without turning every request in
 
 ### Claude Code
 
+**Step 1 — 打开终端**
+
+- **Windows**: 按 `Win + R`，输入 `powershell`，回车
+- **macOS**: 按 `Cmd + 空格`，输入 `Terminal`，回车
+
+**Step 2 — 下载 IPilot**
+
+复制下面这行，粘贴到终端里，回车：
+
 ```bash
-# 1. Download
 git clone https://github.com/LewisHinton/IPilot.git
-# 2. Move to skills folder
-mv IPilot ~/.claude/skills/ipilot
-# 3. Restart Claude Code, then:
 ```
+
+如果你的电脑还没装 git，先去 https://git-scm.com 下载安装，再回到这一步。
+
+**Step 3 — 把 IPilot 放进 Claude Code 的 Skills 目录**
+
+```bash
+mv IPilot ~/.claude/skills/ipilot
+```
+
+这行命令会把下载好的 `IPilot` 文件夹移动到你电脑上 Claude Code 的 skills 目录里。移动完之后，IPilot 在你所有 Claude Code 项目中都能用。
+
+如果你只想在当前这一个项目里用 IPilot，把上面那行换成：
+
+```bash
+mv IPilot .claude/skills/ipilot
+```
+
+**Step 4 — 重启 Claude Code**
+
+把 Claude Code 完全关掉，再重新打开。
+
+**Step 5 — 验证安装**
+
+在 Claude Code 里输入下面这行，回车：
 
 ```text
 @ipilot I own a mascot. Help me build an IP consistency profile.
 ```
 
-For a single project only: `mv IPilot .claude/skills/ipilot`
+如果 Claude Code 开始问你关于 mascot 的问题，说明安装成功 ✅
 
-Not working? Check: folder named `ipilot` · `SKILL.md` at the root · restarted Claude Code.
+如果提示找不到 `@ipilot`，依次检查：
+- 文件夹名字是不是刚好叫 `ipilot`（不是 `IPilot`，不是 `ipilot-main`）
+- `SKILL.md` 文件是不是直接在 `ipilot` 文件夹里面（不是在里面某个子文件夹里）
+- 有没有重启 Claude Code
 
 ---
 
 ### Codex CLI
 
-Inside Codex CLI, press `$` → **Skill Installer** → paste:
+**Step 1 — 打开 Codex CLI**
+
+在终端里输入 `codex` 并回车，进入 Codex 的交互界面。
+
+**Step 2 — 打开 Skill Installer**
+
+在 Codex CLI 里按 `$` 键，会弹出一个命令菜单。用方向键选中 **Skill Installer**，回车。
+
+**Step 3 — 输入 IPilot 的地址**
+
+在 Skill Installer 的输入框里粘贴下面这行地址：
 
 ```
 https://github.com/LewisHinton/IPilot.git
 ```
 
-Or manually:
+回车确认，等待安装完成。
 
-```bash
-git clone https://github.com/LewisHinton/IPilot.git
-cp -R IPilot ~/.codex/skills/ipilot
+**Step 4 — 重启 Codex CLI**
+
+关掉 Codex CLI，重新打开。
+
+**Step 5 — 验证安装**
+
+在 Codex CLI 里输入：
+
+```text
+@ipilot I own this mascot. Create a sticker pack.
 ```
+
+如果 Codex 开始处理你的请求，说明安装成功 ✅
+
+> **备用手动安装（如果 Skill Installer 用不了）：**
+>
+> ```bash
+> git clone https://github.com/LewisHinton/IPilot.git
+> cp -R IPilot ~/.codex/skills/ipilot
+> ```
+>
+> 然后再重启 Codex CLI，用 `@ipilot` 调用。
 
 ---
 
 ### Codex Desktop / Editor
 
-Same as above: `$` → **Skill Installer** → paste the repo URL.
+**Step 1 — 打开 Codex**
 
-(Once IPilot is listed in the [OpenAI Skills Catalog](https://github.com/openai/skills), it will be just `$skill-installer ipilot`.)
+启动 Codex Desktop 或 Codex Editor 应用。
+
+**Step 2 — 打开 Skill Installer**
+
+在 Codex 的聊天输入框里按 `$` 键，选择 **Skill Installer**。
+
+**Step 3 — 安装 IPilot**
+
+粘贴以下地址，回车：
+
+```
+https://github.com/LewisHinton/IPilot.git
+```
+
+等待安装完成，重启 Codex。
+
+**Step 4 — 验证安装**
+
+输入 `@ipilot`，如果出现 IPilot 的技能面板，说明安装成功 ✅
 
 ---
 
-### Other tools
+### 其他支持 SKILL.md 的工具
 
-Point any SKILL.md‑compatible runtime at the cloned folder. If your tool wants a zip, zip the folder *contents* (not the folder itself).
+IPilot 是一个标准 SKILL.md 文件夹，所有兼容 SKILL.md 的 AI 工具都能用。如果你的工具支持导入本地 Skill：
+
+1. 先把仓库克隆下来：`git clone https://github.com/LewisHinton/IPilot.git`
+2. 在你的工具的 Skills 设置里，选择"导入"或"添加本地 Skill"
+3. 选中克隆下来的 `IPilot` 文件夹
+4. 如果工具要求 zip 包，把文件夹**里面的内容**（不是文件夹本身）打包成 zip，再导入
 
 ---
 
-### No runtime? Just copy-paste
+### 没有任何 AI 工具？也能用
 
-Open [`SKILL.md`](SKILL.md), copy the contents into ChatGPT / Claude / any capable LLM. Pull specific reference files from [`references/`](references/) as needed.
+**Step 1 — 打开 SKILL.md**
+
+在浏览器里打开：[`SKILL.md`](SKILL.md)
+
+**Step 2 — 全选复制**
+
+`Ctrl + A`（Mac: `Cmd + A`）全选，`Ctrl + C`（Mac: `Cmd + C`）复制。
+
+**Step 3 — 粘贴到 ChatGPT / Claude / 任何 LLM**
+
+打开 ChatGPT 或 Claude 网页版，把刚才复制的内容粘贴进去，然后接着写你的需求，比如：
+
+> 我有一只蓝色的猫形机器人作为品牌吉祥物，帮我设计一套 8 枚微信表情包贴纸。保持角色形象一致，问完我再生成图片。
+
+LLM 会按照 `SKILL.md` 里的工作流来引导你完成整个流程。
 
 ---
 
