@@ -157,134 +157,64 @@ The goal is more conversation where it matters, without turning every request in
 
 ## How to Install 📥
 
-IPilot is a plain Skill folder built around `SKILL.md`, references, templates, examples, and lightweight scripts. It works with any SKILL.md-compatible agent runtime.
-
-Choose the option that matches your environment.
+Pick your tool and run the commands.
 
 ---
 
-### 🟣 Option A — Claude Code (Recommended)
+### Claude Code
 
-Claude Code loads Skills from a dedicated directory. Place the `ipilot` folder there and you're done.
-
-**Global install** (available in all your Claude Code projects):
+Install once, use everywhere with `@ipilot`:
 
 ```bash
 git clone https://github.com/LewisHinton/IPilot.git
 mv IPilot ~/.claude/skills/ipilot
 ```
 
-**Project-local install** (scoped to one project):
+Or, install inside a single project:
 
 ```bash
-# From your project root:
 git clone https://github.com/LewisHinton/IPilot.git .claude/skills/ipilot
 ```
 
-**Verify** — start Claude Code and run:
+Restart Claude Code, then try:
 
 ```text
 @ipilot I own a mascot. Help me build an IP consistency profile.
 ```
 
-If Claude Code doesn't recognize `@ipilot`, check that:
-- `SKILL.md` is at the root of the `ipilot` folder (not in a subdirectory).
-- The folder is named exactly `ipilot`.
-- The folder is inside `~/.claude/skills/` (global) or `<project>/.claude/skills/` (local).
-- You've restarted Claude Code after adding the skill.
+If `@ipilot` isn't recognized, make sure:
+- the folder is named exactly `ipilot`
+- `SKILL.md` is directly inside it (not nested deeper)
+- you restarted Claude Code after copying
 
 ---
 
-### 🟠 Option B — Codex CLI / Codex Editor / Codex Desktop
+### Codex
 
-```bash
-git clone https://github.com/LewisHinton/IPilot.git
-```
-
-**Global install:**
-
-```bash
-# macOS / Linux
-cp -R IPilot ~/.codex/skills/ipilot
-
-# Windows PowerShell
-Copy-Item -Recurse IPilot "$env:USERPROFILE\.codex\skills\ipilot" -Force
-```
-
-**Project-local install:**
-
-```bash
-# macOS / Linux
-cp -R IPilot /path/to/your-project/.codex/skills/ipilot
-
-# Windows PowerShell
-Copy-Item -Recurse IPilot "C:\path\to\your-project\.codex\skills\ipilot" -Force
-```
-
-Then invoke it from Codex:
-
-```text
-@ipilot
-I own this mascot. Use the reference image to create a 6-piece sticker pack.
-Keep the character consistent and ask before image generation.
-```
+IPilot is a standard SKILL.md folder. Check the Codex documentation for how to install custom Skills in your version (CLI, Editor, or Desktop).
 
 ---
 
-### 🔵 Option C — Other SKILL.md-Compatible Runtimes
+### Other tools
 
-Any agent runtime that reads `SKILL.md` files can use IPilot. The only requirement: the runtime must be able to read local Markdown files and follow structured instructions.
-
-1. Clone or download this repository.
-2. Keep the folder structure intact — `SKILL.md` at the root, `references/`, `templates/`, `examples/`, `sample_briefs/`, and `scripts/` alongside it.
-3. Point your runtime at the `IPilot` folder, or import / symlink / copy it into the runtime's skills directory.
-4. If your runtime expects a zip bundle, zip the folder *contents* (not the folder itself) without changing the directory structure.
-
-Example invocation:
-
-```text
-Use the Skill at ./IPilot.
-Follow SKILL.md and load only the references needed for the task.
-```
-
-This works best when the agent supports:
-
-- local file reading;
-- Markdown instructions;
-- optional script execution;
-- image generation or prompt handoff;
-- explicit confirmation before tool execution.
+IPilot works with any tool that reads `SKILL.md` files. Point your tool at the cloned folder. If your tool expects a zip, zip the folder contents (not the folder itself).
 
 ---
 
-### 🟢 Option D — Manual / Prompt-Pack (No Skill Runtime)
+### No tool? No problem.
 
-If your environment doesn't support Skills at all, you can still use IPilot as a prompt-pack reference. Open these files manually and paste their content (or the relevant portions) into your conversation with any capable LLM:
-
-| File | Use When |
-|---|---|
-| `SKILL.md` | Central workflow — always start here |
-| `references/reference-image-intake.md` | You have a mascot image to upload |
-| `references/ip-consistency-system.md` | You need stable visual grammar rules |
-| `references/material-type-router.md` | You're unsure what asset type to create |
-| `references/human-in-the-loop-dialogue.md` | You want the confirmation-gate pattern |
-| `references/image-generation-protocol.md` | You're ready to generate images |
-| `references/brand-safety-checklist.md` | You need to review output for safety |
-
-Then ask your model to follow those instructions for the current mascot project.
+Open `SKILL.md`, copy its contents, paste into ChatGPT / Claude / any capable LLM. Add reference files from `references/` when you need them.
 
 ---
 
 ## Ecosystem Support 🌐
 
-| Environment | Recommended Use | Install Style |
-|---|---|---|
-| **Claude Code** | Primary target — use `@ipilot` | clone into `~/.claude/skills/ipilot` or `<project>/.claude/skills/ipilot` |
-| Codex CLI | Local Skill for coding-agent workflows | copy to `~/.codex/skills/ipilot` or `<project>/.codex/skills/ipilot` |
-| Codex editor / desktop | Local Skill for visual asset production sessions | copy to the Codex skills directory or use as a workspace Skill |
-| Claude app / web Skill flows | Portable Skill bundle | upload or import a zipped Skill folder when supported |
-| Other SKILL.md-compatible agents | Generic Skill package | preserve folder structure and point the agent at `SKILL.md` |
-| No Skill runtime | Prompt-pack reference | manually load `SKILL.md` plus relevant `references/` files |
+| Environment | How to use |
+|---|---|
+| Claude Code | `@ipilot` after copying to `~/.claude/skills/ipilot` |
+| Codex | Check Codex docs for Skill installation |
+| Other SKILL.md tools | Point at the cloned folder |
+| No Skill runtime | Copy-paste `SKILL.md` into any capable LLM |
 
 ---
 
