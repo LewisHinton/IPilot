@@ -166,21 +166,18 @@ The goal is more conversation where it matters, without turning every request in
 ### Claude Code
 
 ```bash
+# 1. Download
 git clone https://github.com/LewisHinton/IPilot.git
+# 2. Move to skills folder
 mv IPilot ~/.claude/skills/ipilot
+# 3. Restart Claude Code, then:
 ```
-
-For a single project:
-
-```bash
-git clone https://github.com/LewisHinton/IPilot.git .claude/skills/ipilot
-```
-
-Restart Claude Code, then:
 
 ```text
 @ipilot I own a mascot. Help me build an IP consistency profile.
 ```
+
+For a single project only: `mv IPilot .claude/skills/ipilot`
 
 Not working? Check: folder named `ipilot` · `SKILL.md` at the root · restarted Claude Code.
 
@@ -188,47 +185,38 @@ Not working? Check: folder named `ipilot` · `SKILL.md` at the root · restarted
 
 ### Codex CLI
 
-**Method 1 — built-in installer (easiest):**
-
-Open Codex CLI, type `$`, select **Skill Installer**, paste:
+Inside Codex CLI, press `$` → **Skill Installer** → paste:
 
 ```
 https://github.com/LewisHinton/IPilot.git
 ```
 
-**Method 2 — manual folder copy:**
+Or manually:
 
 ```bash
 git clone https://github.com/LewisHinton/IPilot.git
-cp -R IPilot ~/.codex/skills/ipilot          # available everywhere
-# or: cp -R IPilot .codex/skills/ipilot      # this project only
-```
-
-Then invoke:
-
-```text
-@ipilot I own this mascot. Create a sticker pack.
+cp -R IPilot ~/.codex/skills/ipilot
 ```
 
 ---
 
 ### Codex Desktop / Editor
 
-Open Codex, type `$`, run **Skill Installer** → paste the repo URL.  
-Or browse the built-in marketplace for "IPilot."
+Same as above: `$` → **Skill Installer** → paste the repo URL.
+
+(Once IPilot is listed in the [OpenAI Skills Catalog](https://github.com/openai/skills), it will be just `$skill-installer ipilot`.)
 
 ---
 
 ### Other tools
 
-Point any SKILL.md-compatible runtime at the cloned folder.  
-If your tool wants a zip, zip the folder *contents* (not the folder itself).
+Point any SKILL.md‑compatible runtime at the cloned folder. If your tool wants a zip, zip the folder *contents* (not the folder itself).
 
 ---
 
-### No tool? No problem.
+### No runtime? Just copy-paste
 
-Open `SKILL.md`, copy-paste into any capable LLM. Pull reference files from `references/` as needed.
+Open [`SKILL.md`](SKILL.md), copy the contents into ChatGPT / Claude / any capable LLM. Pull specific reference files from [`references/`](references/) as needed.
 
 ---
 
@@ -238,7 +226,7 @@ Open `SKILL.md`, copy-paste into any capable LLM. Pull reference files from `ref
 |---|---|
 | Claude Code | `git clone` → `~/.claude/skills/ipilot` |
 | Codex CLI | `$` → Skill Installer, or `cp -R` to `~/.codex/skills/ipilot` |
-| Codex Desktop / Editor | `$` → Skill Installer, or browse in-app marketplace |
+| Codex Desktop / Editor | `$` → Skill Installer → paste repo URL |
 | Other SKILL.md tools | Point at the cloned folder |
 | No runtime | Copy-paste `SKILL.md` into any LLM |
 
