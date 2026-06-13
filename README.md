@@ -19,6 +19,10 @@
 
 **Human-in-the-loop IP mascot asset workflow for agent Skills.**
 
+<p align="center">
+  <i>Keep the character. Expand the universe.</i>
+</p>
+
 IPilot helps teams turn an existing mascot, avatar, brand figure, or IP character into consistent visual asset concepts: sticker packs, memes, campaign visuals, platform social posts, occasion-based visuals, physical material concepts, and image-generation prompt packs.
 
 > **It is not a generic image generator.** Its default job is to preserve an IP's visual grammar first, then generate creative assets inside safe constraints.
@@ -157,64 +161,86 @@ The goal is more conversation where it matters, without turning every request in
 
 ## How to Install 📥
 
-Pick your tool and run the commands.
-
 ---
 
 ### Claude Code
-
-Install once, use everywhere with `@ipilot`:
 
 ```bash
 git clone https://github.com/LewisHinton/IPilot.git
 mv IPilot ~/.claude/skills/ipilot
 ```
 
-Or, install inside a single project:
+For a single project:
 
 ```bash
 git clone https://github.com/LewisHinton/IPilot.git .claude/skills/ipilot
 ```
 
-Restart Claude Code, then try:
+Restart Claude Code, then:
 
 ```text
 @ipilot I own a mascot. Help me build an IP consistency profile.
 ```
 
-If `@ipilot` isn't recognized, make sure:
-- the folder is named exactly `ipilot`
-- `SKILL.md` is directly inside it (not nested deeper)
-- you restarted Claude Code after copying
+Not working? Check: folder named `ipilot` · `SKILL.md` at the root · restarted Claude Code.
 
 ---
 
-### Codex
+### Codex CLI
 
-IPilot is a standard SKILL.md folder. Check the Codex documentation for how to install custom Skills in your version (CLI, Editor, or Desktop).
+**Method 1 — built-in installer (easiest):**
+
+Open Codex CLI, type `$`, select **Skill Installer**, paste:
+
+```
+https://github.com/LewisHinton/IPilot.git
+```
+
+**Method 2 — manual folder copy:**
+
+```bash
+git clone https://github.com/LewisHinton/IPilot.git
+cp -R IPilot ~/.codex/skills/ipilot          # available everywhere
+# or: cp -R IPilot .codex/skills/ipilot      # this project only
+```
+
+Then invoke:
+
+```text
+@ipilot I own this mascot. Create a sticker pack.
+```
+
+---
+
+### Codex Desktop / Editor
+
+Open Codex, type `$`, run **Skill Installer** → paste the repo URL.  
+Or browse the built-in marketplace for "IPilot."
 
 ---
 
 ### Other tools
 
-IPilot works with any tool that reads `SKILL.md` files. Point your tool at the cloned folder. If your tool expects a zip, zip the folder contents (not the folder itself).
+Point any SKILL.md-compatible runtime at the cloned folder.  
+If your tool wants a zip, zip the folder *contents* (not the folder itself).
 
 ---
 
 ### No tool? No problem.
 
-Open `SKILL.md`, copy its contents, paste into ChatGPT / Claude / any capable LLM. Add reference files from `references/` when you need them.
+Open `SKILL.md`, copy-paste into any capable LLM. Pull reference files from `references/` as needed.
 
 ---
 
 ## Ecosystem Support 🌐
 
-| Environment | How to use |
+| Environment | Install |
 |---|---|
-| Claude Code | `@ipilot` after copying to `~/.claude/skills/ipilot` |
-| Codex | Check Codex docs for Skill installation |
+| Claude Code | `git clone` → `~/.claude/skills/ipilot` |
+| Codex CLI | `$` → Skill Installer, or `cp -R` to `~/.codex/skills/ipilot` |
+| Codex Desktop / Editor | `$` → Skill Installer, or browse in-app marketplace |
 | Other SKILL.md tools | Point at the cloned folder |
-| No Skill runtime | Copy-paste `SKILL.md` into any capable LLM |
+| No runtime | Copy-paste `SKILL.md` into any LLM |
 
 ---
 
@@ -387,5 +413,7 @@ This version emphasizes human-in-the-loop dialogue, reference-image fidelity, de
 ---
 
 <p align="center">
+  <b>Keep the character. Expand the universe.</b>
+  <br><br>
   <sub>Built with ❤️ for IP owners who want their mascot to stay recognizable across every asset.</sub>
 </p>
