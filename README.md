@@ -27,16 +27,16 @@ IPilot helps teams turn an existing mascot, avatar, brand figure, or IP characte
 
 ## 📑 Table of Contents
 
-- [Why Star This](#why-star-this-)
-- [30-Second Demo](#30-second-demo-)
-- [Core Workflow](#core-workflow-)
+- [Why Star This](#why-star-this)
+- [30-Second Demo](#30-second-demo)
+- [Core Workflow](#core-workflow)
 - [What It Protects](#what-it-protects)
 - [Human-in-the-Loop by Default](#human-in-the-loop-by-default)
 - [Use Cases](#use-cases)
 - [How to Install](#how-to-install)
 - [Ecosystem Support](#ecosystem-support)
 - [Application Domains](#application-domains)
-- [Quick Start Prompt](#quick-start-prompt-)
+- [Quick Start Prompt](#quick-start-prompt)
 - [Validate a Brief](#validate-a-brief)
 - [Repository Map](#repository-map)
 - [Key References](#key-references)
