@@ -1,0 +1,36 @@
+﻿name: Share a use case
+description: Share a real or anonymized mascot asset workflow IPilot should support.
+title: "[Use Case]: "
+labels: ["use-case"]
+body:
+  - type: textarea
+    id: scenario
+    attributes:
+      label: Scenario
+      description: Describe the mascot/IP, target audience, platform, material type, and goal. Keep private IP details anonymized if needed.
+    validations:
+      required: true
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Domain
+      options:
+        - Brand marketing
+        - Community operations
+        - Education or campus
+        - Open-source project
+        - Event or conference
+        - Physical merchandise
+        - Occasion-based campaign
+        - Consistency review
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: success
+    attributes:
+      label: What would success look like?
+      description: What output should IPilot produce?
+    validations:
+      required: true
+

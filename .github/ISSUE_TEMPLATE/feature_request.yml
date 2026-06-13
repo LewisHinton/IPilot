@@ -1,0 +1,38 @@
+﻿name: Feature request
+description: Suggest a workflow, route, template, example, or validation improvement.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Use case
+      description: What mascot/IP asset workflow should IPilot support better?
+      placeholder: Example: sticker packs for Telegram communities, booth material handoff, classroom mascot visuals.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Human-in-the-loop dialogue
+        - Reference-image intake
+        - IP consistency
+        - Material routing
+        - Platform adaptation
+        - Occasion-based assets
+        - Physical materials
+        - Safety review
+        - Examples or sample briefs
+        - Validator or CI
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: What should change?
+    validations:
+      required: true
+

@@ -1,0 +1,36 @@
+﻿name: Bug report
+description: Report incorrect IPilot behavior, documentation, or validation.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What went wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should IPilot have done instead?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Include the relevant request, brief, file path, or example. Do not upload private IP art unless you have rights to share it.
+    validations:
+      required: false
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I removed private or copyrighted reference images unless I have rights to share them.
+          required: true
+        - label: I checked whether the issue is covered by the existing README or examples.
+          required: false
+
