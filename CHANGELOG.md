@@ -12,6 +12,7 @@
 - Added `CONTRIBUTING.md` and `.github/pull_request_template.md` to make community contributions easier to review.
 - Expanded `README.md` with How to Install, ecosystem support for CLI/editor/Skill runtimes, and common application domains.
 - Added `SECURITY.md`, GitHub issue templates, and `examples/README.md` to improve trust, community intake, and example discoverability.
+- Moved How to Install earlier in `README.md`, added a demo GIF, added a clearer Quick Start, and added a Chinese section.
 
 ## v0.7 release candidate
 

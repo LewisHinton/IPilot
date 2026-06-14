@@ -1,81 +1,67 @@
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/IPilot-IP%20Mascot%20Workflow-6e41e2?style=for-the-badge&logo=robot&logoColor=white&labelColor=1a1a2e">
-    <img alt="IPilot" src="https://img.shields.io/badge/IPilot-IP%20Mascot%20Workflow-6e41e2?style=for-the-badge&logo=robot&logoColor=white&labelColor=f5f3ff">
-  </picture>
+  <img alt="IPilot" src="https://img.shields.io/badge/IPilot-IP%20Mascot%20Workflow-6e41e2?style=for-the-badge&logo=robot&logoColor=white">
 </p>
 
 <p align="center">
   <a href="https://github.com/LewisHinton/IPilot/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
   <a href="https://github.com/LewisHinton/IPilot/actions/workflows/validate.yml"><img alt="CI" src="https://github.com/LewisHinton/IPilot/actions/workflows/validate.yml/badge.svg"></a>
-  <a href="https://github.com/LewisHinton/IPilot/releases"><img alt="Release" src="https://img.shields.io/badge/release-v0.8--rc-6e41e2.svg"></a>
-  <a href="https://github.com/LewisHinton/IPilot/blob/main/CONTRIBUTING.md"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"></a>
   <a href="https://github.com/LewisHinton/IPilot/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/LewisHinton/IPilot?style=social"></a>
 </p>
 
-<br>
+# IPilot
 
-# 🎯 IPilot
-
-**Human-in-the-loop IP mascot asset workflow for agent Skills.**
-
-<p align="center">
-  <i>Keep the character. Expand the universe.</i>
-</p>
+Human-in-the-loop IP mascot asset workflow for agent Skills.
 
 IPilot helps teams turn an existing mascot, avatar, brand figure, or IP character into consistent visual asset concepts: sticker packs, memes, campaign visuals, platform social posts, occasion-based visuals, physical material concepts, and image-generation prompt packs.
 
-> **It is not a generic image generator.** Its default job is to preserve an IP's visual grammar first, then generate creative assets inside safe constraints.
+It is not a generic image generator. IPilot preserves the character's visual grammar first, then expands assets inside safe constraints.
 
----
+## How to Install
 
-## 📑 Table of Contents
+Clone the repository:
 
-- [Why Star This](#why-star-this)
-- [30-Second Demo](#30-second-demo)
-- [Core Workflow](#core-workflow)
-- [What It Protects](#what-it-protects)
-- [Human-in-the-Loop by Default](#human-in-the-loop-by-default)
-- [Use Cases](#use-cases)
-- [How to Install](#how-to-install)
-- [Ecosystem Support](#ecosystem-support)
-- [Application Domains](#application-domains)
-- [Quick Start Prompt](#quick-start-prompt)
-- [Validate a Brief](#validate-a-brief)
-- [Repository Map](#repository-map)
-- [Key References](#key-references)
-- [Community and Trust](#community-and-trust)
-- [Example Prompts](#example-prompts)
-- [Safety Boundaries](#safety-boundaries)
-- [GitHub Release Checklist](#github-release-checklist)
-- [Status](#status)
+```bash
+git clone https://github.com/LewisHinton/IPilot.git
+cd IPilot
+```
 
----
+Codex CLI / Codex editor / Codex desktop:
 
-## Why Star This 🌟
+```bash
+cp -R . ~/.codex/skills/ipilot
+```
 
-IPilot is built for a real production failure mode: teams have a recognizable character, but every new prompt slowly changes the identity.
+Windows PowerShell:
 
-It gives agent runtimes a repeatable workflow for:
+```powershell
+Copy-Item -Recurse . "$env:USERPROFILE\.codex\skills\ipilot" -Force
+```
 
-- keeping reference-image fidelity instead of silently averaging visual references;
-- separating invariant features, flexible features, forbidden changes, and safety constraints;
-- routing requests into the right material type before generating details;
-- adapting output for platforms, occasions, audiences, and physical usage contexts;
-- keeping the user in the loop with short recaps, micro-confirmations, and approval gates;
-- separating captions, visual prompts, text-layout notes, safety notes, and production handoff notes.
+Claude Code / Claude-compatible Skill runtimes:
 
----
+1. Keep `SKILL.md` at the root of the `IPilot` folder.
+2. Preserve `references/`, `templates/`, `examples/`, `sample_briefs/`, and `scripts/`.
+3. Import, copy, symlink, or upload the folder according to your runtime's Skill mechanism.
+4. If your runtime expects a portable bundle, zip the folder contents without changing structure.
 
-## 30-Second Demo ⚡
+Manual prompt-pack use:
 
-Ask:
+1. Open `SKILL.md`.
+2. Load the relevant files in `references/`.
+3. Ask your model to follow IPilot for the current mascot project.
+
+## Demo GIF
+
+![IPilot demo](assets/demo/ipilot-demo.gif)
+
+## Quick Start
+
+After installation, try:
 
 ```text
 @ipilot
-Use my mascot reference image to create 5 WeChat reaction stickers.
-Keep the headphones, teal-white color system, round face, and circuit-pattern tail.
-Use a cute but not childish tone.
+I own this mascot. Use the reference image to create a 6-piece sticker pack.
+Keep the character consistent and ask before image generation.
 ```
 
 IPilot should:
@@ -87,9 +73,20 @@ IPilot should:
 5. ask before image generation unless auto-generation was explicitly authorized;
 6. review generated images for identity drift, style drift, text errors, and safety.
 
----
+## Why Star This
 
-## Core Workflow 🔄
+IPilot solves a common production failure: teams have a recognizable character, but every new prompt slowly changes its identity.
+
+It gives agent runtimes a repeatable workflow for:
+
+- keeping reference-image fidelity instead of silently averaging visual references;
+- separating invariant features, flexible features, forbidden changes, and safety constraints;
+- routing requests into the right material type before generating details;
+- adapting output for platforms, occasions, audiences, and physical usage contexts;
+- keeping the user in the loop with short recaps, micro-confirmations, and approval gates;
+- separating captions, visual prompts, text-layout notes, safety notes, and production handoff notes.
+
+## Core Workflow
 
 ```text
 Guided IP intake
@@ -105,11 +102,7 @@ Guided IP intake
 -> Text layout and production handoff
 ```
 
----
-
-## What It Protects 🛡️
-
-IPilot treats IP consistency as visual grammar, not a vague style note.
+## What It Protects
 
 | Layer | What It Tracks |
 |---|---|
@@ -121,217 +114,33 @@ IPilot treats IP consistency as visual grammar, not a vague style note.
 | Production quality | complete construction, clean fills, no broken elements, no random text |
 | Brand safety | no hateful, sexualized, political-persuasion, harassing, or off-brand content |
 
----
-
-## Human-in-the-Loop by Default 🧑‍💻
+## Human-in-the-Loop by Default
 
 IPilot should not rush from a user request to image generation.
-
-It uses:
 
 - **Gate 0: Material type confirmation** when the asset type is unclear.
 - **Gate 1: Asset direction confirmation** after opportunity mapping.
 - **Gate 2: Concept approval before image generation** after prompts and safety review.
 - **Gate 3: Post-generation decision** after image output.
 
-Between those gates, it uses micro-confirmations such as:
+Between gates, IPilot uses micro-confirmations such as:
 
 - "I will treat this uploaded image as the official source of truth unless you say otherwise."
 - "I will keep Chinese text as a separate layer to avoid text-rendering errors."
 - "I will use balanced reference fidelity for social stickers."
 
-The goal is more conversation where it matters, without turning every request into a long form.
+## Ecosystem Support
 
----
-
-## Use Cases 📦
-
-- Brand mascot sticker packs
-- Community reaction images
-- Meme concepts that stay brand-safe
-- Platform-adapted campaign cards
-- Xiaohongshu, WeChat, Bilibili, Douyin, X, and Instagram social assets
-- IP birthday visuals, holiday cards, seasonal campaigns, and anniversary visuals
-- Physical material concepts such as stickers, badges, acrylic stands, postcards, flyers, booth posters, and package inserts
-- Reference-image intake and multi-reference conflict resolution
-- Consistency and safety review for existing drafts or generated images
-- Prompt packs for image-generation tools
-
----
-
-## How to Install 📥
-
----
-
-### Claude Code
-
-**Step 1 — 打开终端**
-
-- **Windows**: 按 `Win + R`，输入 `powershell`，回车
-- **macOS**: 按 `Cmd + 空格`，输入 `Terminal`，回车
-
-**Step 2 — 下载 IPilot**
-
-复制下面这行，粘贴到终端里，回车：
-
-```bash
-git clone https://github.com/LewisHinton/IPilot.git
-```
-
-如果你的电脑还没装 git，先去 https://git-scm.com 下载安装，再回到这一步。
-
-**Step 3 — 把 IPilot 放进 Claude Code 的 Skills 目录**
-
-```bash
-mv IPilot ~/.claude/skills/ipilot
-```
-
-这行命令会把下载好的 `IPilot` 文件夹移动到你电脑上 Claude Code 的 skills 目录里。移动完之后，IPilot 在你所有 Claude Code 项目中都能用。
-
-如果你只想在当前这一个项目里用 IPilot，把上面那行换成：
-
-```bash
-mv IPilot .claude/skills/ipilot
-```
-
-**Step 4 — 重启 Claude Code**
-
-把 Claude Code 完全关掉，再重新打开。
-
-**Step 5 — 验证安装**
-
-在 Claude Code 里输入下面这行，回车：
-
-```text
-@ipilot I own a mascot. Help me build an IP consistency profile.
-```
-
-如果 Claude Code 开始问你关于 mascot 的问题，说明安装成功 ✅
-
-如果提示找不到 `@ipilot`，依次检查：
-- 文件夹名字是不是刚好叫 `ipilot`（不是 `IPilot`，不是 `ipilot-main`）
-- `SKILL.md` 文件是不是直接在 `ipilot` 文件夹里面（不是在里面某个子文件夹里）
-- 有没有重启 Claude Code
-
----
-
-### Codex CLI
-
-**Step 1 — 打开 Codex CLI**
-
-在终端里输入 `codex` 并回车，进入 Codex 的交互界面。
-
-**Step 2 — 打开 Skill Installer**
-
-在 Codex CLI 里按 `$` 键，会弹出一个命令菜单。用方向键选中 **Skill Installer**，回车。
-
-**Step 3 — 输入 IPilot 的地址**
-
-在 Skill Installer 的输入框里粘贴下面这行地址：
-
-```
-https://github.com/LewisHinton/IPilot.git
-```
-
-回车确认，等待安装完成。
-
-**Step 4 — 重启 Codex CLI**
-
-关掉 Codex CLI，重新打开。
-
-**Step 5 — 验证安装**
-
-在 Codex CLI 里输入：
-
-```text
-@ipilot I own this mascot. Create a sticker pack.
-```
-
-如果 Codex 开始处理你的请求，说明安装成功 ✅
-
-> **备用手动安装（如果 Skill Installer 用不了）：**
->
-> ```bash
-> git clone https://github.com/LewisHinton/IPilot.git
-> cp -R IPilot ~/.codex/skills/ipilot
-> ```
->
-> 然后再重启 Codex CLI，用 `@ipilot` 调用。
-
----
-
-### Codex Desktop / Editor
-
-**Step 1 — 打开 Codex**
-
-启动 Codex Desktop 或 Codex Editor 应用。
-
-**Step 2 — 打开 Skill Installer**
-
-在 Codex 的聊天输入框里按 `$` 键，选择 **Skill Installer**。
-
-**Step 3 — 安装 IPilot**
-
-粘贴以下地址，回车：
-
-```
-https://github.com/LewisHinton/IPilot.git
-```
-
-等待安装完成，重启 Codex。
-
-**Step 4 — 验证安装**
-
-输入 `@ipilot`，如果出现 IPilot 的技能面板，说明安装成功 ✅
-
----
-
-### 其他支持 SKILL.md 的工具
-
-IPilot 是一个标准 SKILL.md 文件夹，所有兼容 SKILL.md 的 AI 工具都能用。如果你的工具支持导入本地 Skill：
-
-1. 先把仓库克隆下来：`git clone https://github.com/LewisHinton/IPilot.git`
-2. 在你的工具的 Skills 设置里，选择"导入"或"添加本地 Skill"
-3. 选中克隆下来的 `IPilot` 文件夹
-4. 如果工具要求 zip 包，把文件夹**里面的内容**（不是文件夹本身）打包成 zip，再导入
-
----
-
-### 没有任何 AI 工具？也能用
-
-**Step 1 — 打开 SKILL.md**
-
-在浏览器里打开：[`SKILL.md`](SKILL.md)
-
-**Step 2 — 全选复制**
-
-`Ctrl + A`（Mac: `Cmd + A`）全选，`Ctrl + C`（Mac: `Cmd + C`）复制。
-
-**Step 3 — 粘贴到 ChatGPT / Claude / 任何 LLM**
-
-打开 ChatGPT 或 Claude 网页版，把刚才复制的内容粘贴进去，然后接着写你的需求，比如：
-
-> 我有一只蓝色的猫形机器人作为品牌吉祥物，帮我设计一套 8 枚微信表情包贴纸。保持角色形象一致，问完我再生成图片。
-
-LLM 会按照 `SKILL.md` 里的工作流来引导你完成整个流程。
-
----
-
-## Ecosystem Support 🌐
-
-| Environment | Install |
+| Environment | Install / Use |
 |---|---|
-| Claude Code | `git clone` → `~/.claude/skills/ipilot` |
-| Codex CLI | `$` → Skill Installer, or `cp -R` to `~/.codex/skills/ipilot` |
-| Codex Desktop / Editor | `$` → Skill Installer → paste repo URL |
-| Other SKILL.md tools | Point at the cloned folder |
-| No runtime | Copy-paste `SKILL.md` into any LLM |
+| Codex CLI | copy to `~/.codex/skills/ipilot` |
+| Codex editor / desktop | copy to the Codex skills directory or install as a workspace Skill |
+| Claude Code and similar CLI agents | import, copy, symlink, or point the agent at the folder |
+| Claude app / web Skill flows | upload or import a zipped Skill folder when supported |
+| Other SKILL.md-compatible agents | preserve folder structure and point the agent at `SKILL.md` |
+| No Skill runtime | manually load `SKILL.md` plus relevant `references/` files |
 
----
-
-## Application Domains 🏢
-
-IPilot is strongest when an organization already owns a mascot or brand figure and needs repeatable asset production.
+## Application Domains
 
 | Domain | Typical Outputs |
 |---|---|
@@ -340,128 +149,51 @@ IPilot is strongest when an organization already owns a mascot or brand figure a
 | Education and campus orgs | workshop stickers, exam-season cards, club mascot assets, explainer thumbnails |
 | Open-source projects | mascot stickers, README banners, release celebration cards, contributor rewards |
 | Events and conferences | booth posters, badges, flyers, attendee stickers, QR-code cards |
-| Physical merchandise | sticker sheets, acrylic stands, keychains, postcards, packaging inserts |
+| Physical merchandise | sticker sheets, keychains, postcards, packaging inserts |
 | Occasion-based campaigns | IP birthday visuals, holiday greetings, anniversary cards, countdown series |
 | Consistency review | generated-image QA, reference conflict resolution, prompt drift diagnosis |
 
----
-
-## Quick Start Prompt 🚀
-
-After installation, try:
-
-```text
-@ipilot
-I own this mascot. Use the reference image to create a 6-piece sticker pack.
-Keep the character consistent and ask before image generation.
-```
-
----
-
-## Validate a Brief ✅
-
-IPilot includes a dependency-light validator for Markdown IP briefs.
+## Validate a Brief
 
 ```bash
 python scripts/validate_ip_brief.py sample_briefs/tensor-cat-brief.md
-```
-
-Run all release-readiness checks:
-
-```bash
 python scripts/check_release_readiness.py
 ```
 
-The validator checks for required semantic fields while staying flexible enough for human-written briefs.
-
----
-
-## Repository Map 📁
+## Repository Map
 
 ```text
 IPilot/
-├── SKILL.md                         # central skill workflow
-├── LICENSE                          # MIT License
-├── README.md                        # GitHub-facing overview
-├── CONTRIBUTING.md                  # contribution guide
-├── SECURITY.md                      # security policy for Skill usage
-├── AGENTS.md                        # repo-level agent instructions
-├── CHANGELOG.md                     # release notes
-├── templates/                       # reusable input and output templates
-├── references/                      # detailed workflow modules
-│   ├── human-in-the-loop-dialogue.md
-│   ├── reference-image-intake.md
-│   ├── ip-consistency-system.md
-│   ├── material-type-router.md
-│   ├── confirmation-gates.md
-│   ├── image-generation-protocol.md
-│   └── ...
-├── examples/                        # complete workflow demos
-├── sample_briefs/                   # validator-friendly sample briefs
-└── scripts/
-    └── validate_ip_brief.py
+|-- SKILL.md
+|-- LICENSE
+|-- README.md
+|-- CONTRIBUTING.md
+|-- SECURITY.md
+|-- templates/
+|-- references/
+|-- examples/
+|-- sample_briefs/
+`-- scripts/
 ```
 
----
+## Key References
 
-## Key References 📚
+- `references/human-in-the-loop-dialogue.md`: conversational cadence and mandatory pauses.
+- `references/reference-image-intake.md`: source-of-truth handling for uploaded IP images.
+- `references/ip-consistency-system.md`: deep visual grammar rules.
+- `references/material-type-router.md`: asset routing before detailed concepts.
+- `references/confirmation-gates.md`: approval gates before production and generation.
+- `references/image-generation-protocol.md`: prompt structure and generation readiness checks.
+- `references/brand-safety-checklist.md`: safety review for brand-safe mascot output.
 
-- [`references/human-in-the-loop-dialogue.md`](references/human-in-the-loop-dialogue.md): conversational cadence and mandatory pauses.
-- [`references/reference-image-intake.md`](references/reference-image-intake.md): source-of-truth handling for uploaded IP images.
-- [`references/ip-consistency-system.md`](references/ip-consistency-system.md): deep visual grammar rules.
-- [`references/material-type-router.md`](references/material-type-router.md): asset routing before detailed concepts.
-- [`references/confirmation-gates.md`](references/confirmation-gates.md): approval gates before production and generation.
-- [`references/image-generation-protocol.md`](references/image-generation-protocol.md): prompt structure and generation readiness checks.
-- [`references/brand-safety-checklist.md`](references/brand-safety-checklist.md): safety review for brand-safe mascot output.
+## Community and Trust
 
----
-
-## Community and Trust 🤝
-
-- Use [`CONTRIBUTING.md`](CONTRIBUTING.md) before opening pull requests.
+- Use `CONTRIBUTING.md` before opening pull requests.
 - Use GitHub issue templates for bugs, feature requests, and real-world use cases.
-- Use [`SECURITY.md`](SECURITY.md) for prompt-injection, unsafe-instruction, or script-behavior concerns.
+- Use `SECURITY.md` for prompt-injection, unsafe-instruction, or script-behavior concerns.
 - Do not upload private reference art, brand guidelines, or unreleased mascot assets unless you have rights to share them.
 
----
-
-## Example Prompts 💬
-
-**Sticker pack:**
-
-```text
-@ipilot
-Based on this official mascot reference, create 8 chat stickers for a developer community.
-Tone: warm, smart, slightly funny. Keep text as separate layers.
-```
-
-**Campaign visual:**
-
-```text
-@ipilot
-Use our existing IP character to design a product launch card for Xiaohongshu.
-Ask me for platform and text constraints before detailed concepts.
-```
-
-**Physical material:**
-
-```text
-@ipilot
-Create badge and acrylic stand concepts for our mascot.
-Audience: conference visitors and community contributors.
-Preserve the mascot's exact silhouette and color ratio.
-```
-
-**Review:**
-
-```text
-@ipilot
-Review these generated mascot images for identity drift, style drift, color drift, text errors, and brand safety.
-```
-
----
-
-## Safety Boundaries 🛑
+## Safety Boundaries
 
 IPilot must not generate or recommend:
 
@@ -472,33 +204,64 @@ IPilot must not generate or recommend:
 - imitation of copyrighted characters, famous mascots, or living artists' distinctive styles unless the user owns the relevant rights;
 - content that contradicts the user-provided forbidden topics or forbidden visual changes.
 
----
+## GitHub Release Checklist
 
-## GitHub Release Checklist 📋
+- [ ] Confirm `LICENSE` matches the intended open-source license.
+- [ ] Add repo description: `Human-in-the-loop IP mascot asset workflow for agent Skills`.
+- [ ] Use topics: `codex-skill`, `mascot`, `brand-safety`, `image-generation`, `prompt-engineering`, `human-in-the-loop`, `ip-consistency`, `creative-ai`.
+- [ ] Keep GitHub Actions validation enabled.
+- [ ] Run `python scripts/check_release_readiness.py`.
 
-Before publishing the repository:
+## 中文版
 
-- [ ] confirm the [`LICENSE`](LICENSE) file matches the intended open-source license;
-- [ ] add a short repo description: `Human-in-the-loop IP mascot asset workflow for agent Skills`;
-- [ ] use topics such as `codex-skill`, `mascot`, `brand-safety`, `image-generation`, `prompt-engineering`, `human-in-the-loop`, `ip-consistency`, and `creative-ai`;
-- [ ] keep the GitHub Actions validation workflow enabled;
-- [ ] keep issue templates, [`CONTRIBUTING.md`](CONTRIBUTING.md), and [`SECURITY.md`](SECURITY.md) in the published repo;
-- [ ] verify sample briefs with `python scripts/validate_ip_brief.py`;
-- [ ] run `python scripts/check_release_readiness.py`;
-- [ ] run a real mascot example and add screenshots or anonymized output snippets if you have permission.
+IPilot 是一个面向 AI Agent Skill 生态的 IP 吉祥物资产生产工作流。
 
----
+它适合已经拥有 IP 形象、品牌角色、吉祥物或头像角色的团队。IPilot 的重点不是“从零生成一个角色”，而是先保护已有角色的视觉语法，再延展出表情包、梗图、活动视觉、平台社交图、节日视觉、线下物料概念和图像生成提示词。
 
-## Status 📊
+### 安装
+
+```bash
+git clone https://github.com/LewisHinton/IPilot.git
+cd IPilot
+```
+
+Codex:
+
+```bash
+cp -R . ~/.codex/skills/ipilot
+```
+
+Windows PowerShell:
+
+```powershell
+Copy-Item -Recurse . "$env:USERPROFILE\.codex\skills\ipilot" -Force
+```
+
+Claude Code 或其他支持 `SKILL.md` 的工具：
+
+1. 保持 `SKILL.md` 在 `IPilot` 文件夹根目录。
+2. 保留 `references/`、`templates/`、`examples/`、`sample_briefs/`、`scripts/`。
+3. 按你的工具要求导入、复制、软链接或上传整个文件夹。
+
+### 快速开始
+
+```text
+@ipilot
+我已经有一个吉祥物参考图。请基于它创作 6 个表情包。
+保持角色一致，并在生成图片前先问我确认。
+```
+
+IPilot 会先识别参考图角色特征，提取固定视觉锚点，确认素材方向，再输出概念、文案、图像提示词、负面约束和安全检查。
+
+### 适用场景
+
+- 品牌吉祥物表情包
+- 社群互动贴纸
+- 小红书、微信、B 站、抖音等平台视觉
+- IP 生日、节日、周年、倒计时视觉
+- 线下贴纸、徽章、亚克力、明信片等物料概念
+- 已生成图片的一致性和安全审查
+
+## Status
 
 Current release: **v0.8 release candidate**.
-
-This version emphasizes human-in-the-loop dialogue, reference-image fidelity, deep IP consistency, material routing, platform / occasion / physical context, and brand-safe image-generation readiness.
-
----
-
-<p align="center">
-  <b>Keep the character. Expand the universe.</b>
-  <br><br>
-  <sub>Built with ❤️ for IP owners who want their mascot to stay recognizable across every asset.</sub>
-</p>

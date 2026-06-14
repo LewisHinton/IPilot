@@ -29,6 +29,7 @@ REQUIRED_FILES = [
     ".github/ISSUE_TEMPLATE/bug_report.yml",
     ".github/ISSUE_TEMPLATE/feature_request.yml",
     ".github/ISSUE_TEMPLATE/use_case.yml",
+    "assets/demo/ipilot-demo.gif",
     "examples/README.md",
     "scripts/validate_ip_brief.py",
     "references/human-in-the-loop-dialogue.md",
@@ -39,13 +40,14 @@ REQUIRED_FILES = [
 
 README_SECTIONS = [
     "Why Star This",
-    "30-Second Demo",
+    "Demo GIF",
+    "Quick Start",
     "Human-in-the-Loop by Default",
     "How to Install",
     "Ecosystem Support",
     "Application Domains",
-    "Quick Start Prompt",
     "Community and Trust",
+    "中文版",
     "GitHub Release Checklist",
 ]
 
