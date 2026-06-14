@@ -19,6 +19,7 @@ REQUIRED_FILES = [
     "SKILL.md",
     "LICENSE",
     "README.md",
+    "README.zh-CN.md",
     "CHANGELOG.md",
     "CONTRIBUTING.md",
     "SECURITY.md",

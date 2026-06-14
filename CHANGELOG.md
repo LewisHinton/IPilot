@@ -13,6 +13,7 @@
 - Expanded `README.md` with How to Install, ecosystem support for CLI/editor/Skill runtimes, and common application domains.
 - Added `SECURITY.md`, GitHub issue templates, and `examples/README.md` to improve trust, community intake, and example discoverability.
 - Moved How to Install earlier in `README.md`, added a demo GIF, added a clearer Quick Start, and added a Chinese section.
+- Added `README.zh-CN.md` as a full Chinese homepage and linked it from the English README.
 
 ## v0.7 release candidate
 
