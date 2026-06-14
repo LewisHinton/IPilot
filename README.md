@@ -56,19 +56,34 @@ Manual prompt-pack use:
 
 ## Demo GIF
 
+The demo shows IPilot's core loop: reference image -> consistency profile -> asset route -> user confirmation -> prompt pack and review notes before image generation.
+
 ![IPilot demo](assets/demo/ipilot-demo.gif)
 
 ## Quick Start
 
-After installation, try:
+After installation, copy this into your agent:
 
 ```text
 @ipilot
-I own this mascot. Use the reference image to create a 6-piece sticker pack.
-Keep the character consistent and ask before image generation.
+I already own this mascot. Treat the uploaded reference image as the official source of truth.
+
+Goal: create a 6-piece reaction sticker pack for a community chat.
+Keep fixed: silhouette, color ratio, line style, headphones, and circuit-tail identity.
+You may vary: pose, expression, props, and short sticker captions.
+
+First show me the IP Consistency Profile, the 6 sticker concepts, and the safety review.
+Ask for confirmation before image generation.
 ```
 
-IPilot should classify the reference image, extract visual anchors, confirm the sticker direction, generate concepts with separated captions and prompts, ask before image generation, and review output for identity drift and safety.
+What happens next:
+
+| Step | IPilot does | You decide |
+| --- | --- | --- |
+| 1. Read the reference | Classifies the image role and extracts visual anchors. | Confirm or correct the fixed identity traits. |
+| 2. Route the asset | Selects the sticker/community route and platform needs. | Accept the route or switch material type. |
+| 3. Draft concepts | Separates captions, scenes, prompts, avoid rules, and safety notes. | Pick, revise, or remove concepts. |
+| 4. Gate generation | Shows the final prompt pack before any image call. | Generate, revise, or reroute. |
 
 ## Why Star This
 
